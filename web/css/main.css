@@ -1,5 +1,5 @@
 .main.container {
-    margin-top: 95px;
+    margin-top: 125px;
 }
 
 .navbar-brand {
@@ -11,4 +11,41 @@
 
 .mb60 {
     margin-bottom: 60px;
+}
+
+.products {
+    padding-top: 20px;
+}
+
+.product {
+    padding: 15px;
+}
+
+.product .card {
+    border: none;
+}
+
+.product .card-img-overlay {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+33 */
+    background: -moz-linear-gradient(top, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.product h4 {
+    color: #FFFFFF;
+}
+
+.filter button {
+    cursor: pointer;
+}
+
+.footer {
+    padding: 15px 0;
+    background-color: #eee;
+    text-align: center;
+}
+.footer .founded {
+    font-size: .75em;
 }

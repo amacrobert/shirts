@@ -9,25 +9,67 @@
     <div class="main container">
 
         <div class="row">
-            <div class="col-md-8 mb60">
+            <div class="col-lg-8 col-md-12 mb60">
                 <h2>Premium T-Shirts</h2>
                 <p>Browse shirts by:</p>
 
-                <div class="btn-group" role="group" aria-label="Browse by sex">
-                    <button type="button" class="btn btn-secondary active">All</button>
-                    <button type="button" class="btn btn-secondary">Men</button>
-                    <button type="button" class="btn btn-secondary">Women</button>
+                <div class="btn-group filter" role="group" aria-label="Browse by sex">
+                    <button data-filter="all" type="button" class="all btn btn-secondary active">All</button>
+                    <button data-filter="men" type="button" class="men btn btn-secondary">Men</button>
+                    <button data-filter="women" type="button" class="women btn btn-secondary">Women</button>
+                </div>
+
+                <div class="row products">
+
+                    <div class="col-md-6 product men">
+                        <div class="card bg-dark text-white">
+                            <img class="card-img" src="{{ asset('img/jackie.jpg') }}" alt="Card image">
+                            <div class="card-img-overlay">
+                                <h4 class="card-title">70-200mm f/2.8 Lens Diagram</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 product women">
+                        <div class="card bg-dark text-white">
+                            <img class="card-img" src="{{ asset('img/jackie.jpg') }}" alt="Card image">
+                            <div class="card-img-overlay">
+                                <h4 class="card-title">14-24mm f/2.8 Lens Diagram</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 product men">
+                        <div class="card bg-dark text-white">
+                            <img class="card-img" src="{{ asset('img/jackie.jpg') }}" alt="Card image">
+                            <div class="card-img-overlay">
+                                <h4 class="card-title">70-200mm f/2.8 Lens Diagram</h4>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="col-md-4 mb60">
+            <div class="col-lg-4 col-md-12 mb60">
                 <h3>Hello</h3>
-                <p>Shirts For Photographers started with one concept:</p>
-                <p>Make high-quality T-Shirts with simple designs that photographers will get, and non-photographers will still think looks cool.</p>
-                <p>We want to make T's that you want to wear, so all our shirts are premium Bella+Canvas or Americal Apparel and 100% cotton.</p>
-                <p>Orders are fulfilled by Amazon, and eligible for Amazon Prime.</p>
-                <p>Founded by <a href="http://andrewmacrobert.com" target="_blank">Andrew MacRobert</a></p>
+                <p>Let's keep it simple.</p>
+                <p>Shirts For Photographers makes one thing:</p>
+                <p>High-quality T-Shirts with designs for photographers.</p>
+                <hr>
+                <p>We want to make T's that you want to keep wearing, so all our shirts are premium Bella+Canvas or Americal Apparel and 100% cotton. None of that low quality wear-it-once crap.</p>
+                <p>Orders are fulfilled by Amazon and eligible for Amazon Prime shipping.</p>
+                <p>Happy shooting.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid">
+        <div class="row footer">
+            <div class="col-md-12">
+                <p>Shirts For Photographers &copy; {{ "now"|date("Y") }}</p>
+                <p class="founded">Founded by <a href="http://andrewmacrobert.com" target="_blank">Andrew MacRobert</a></p>
             </div>
         </div>
     </div>
