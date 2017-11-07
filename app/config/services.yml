@@ -37,5 +37,20 @@ services:
         class: AppBundle\Admin\Product\ProductAdmin
         arguments: [~, AppBundle\Entity\Product\Product, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Product }
+            - { name: sonata.admin, manager_type: orm, label: Product, group: product }
         public: true
+
+    admin.image:
+        class: AppBundle\Admin\Media\ImageAdmin
+        arguments: [~, AppBundle\Entity\Media\Image, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Image, group: media }
+        public: true
+
+    admin.product_image:
+        class: AppBundle\Admin\Product\ImageAdmin
+        arguments: [~, AppBundle\Entity\Product\Image, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Image, group: ~ }
+        public: true
+

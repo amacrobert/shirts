@@ -78,3 +78,23 @@ sonata_block:
 sonata_admin:
     title:                'Shirts Admin'
     title_logo:           bundles/sonataadmin/logo_title.png
+    dashboard:
+        groups:
+            product: { label: 'Product' }
+            media: { label: 'Media' }
+
+        blocks:
+            admins_left_column:
+                position: left
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups:
+                        - product
+
+            admins_right_column:
+                position: right
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups:
+                        - media
+

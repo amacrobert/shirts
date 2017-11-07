@@ -1,0 +1,20 @@
+AppBundle\Entity\Media\Image:
+
+    type: entity
+    table: image
+
+    lifecycleCallbacks:
+        prePersist: [setDateCreatedToNow]
+        preUpdate: [setDateUpdatedToNow]
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name: { type: string, nullable: true }
+        filename: { type: string }
+        caption: { type: text, nullable: true}
+        date_created: { type: datetime }
+        date_updated: { type: datetime }

@@ -109,13 +109,15 @@ class Product {
         return $this->product_images;
     }
 
-    public function addProductImage($image) {
-        $this->product_images[] = $image;
+    public function addProductImage($product_image) {
+        $product_image->setProduct($this);
+        $this->product_images[] = $product_image;
         return $this;
     }
 
-    public function removeProductImage($image) {
-        $this->product_images->removeElement($image);
+    public function removeProductImage($product_image) {
+        $product_image->setProduct(null);
+        $this->product_images->removeElement($product_image);
         return $this;
     }
 

@@ -1,0 +1,26 @@
+AppBundle\Entity\Product\Image:
+
+    type: entity
+    table: product_image
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        ordinal: { type: integer }
+
+    manyToOne:
+        product:
+            targetEntity: AppBundle\Entity\Product\Product
+            inversedBy: product_images
+            joinColumn:
+                name: product_id
+                referencedColumnName: id
+
+        image:
+            targetEntity: AppBundle\Entity\Media\Image
+            joinColumn:
+                name: image_id
+                referencedColumnName: id

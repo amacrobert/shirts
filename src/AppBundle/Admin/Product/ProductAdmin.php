@@ -22,13 +22,18 @@ class ProductAdmin extends AbstractAdmin {
         ];
 
         $formMapper
-            ->add('id', null, ['disabled' => true])
-            ->add('ordinal')
-            ->add('name')
-            ->add('link', 'url', ['required' => false])
-            ->add('price')
-            ->add('sex', 'choice', ['choices' => $sexes, 'required' => false])
-            ->add('description')
+            ->with('General', ['class' => 'col-md-6'])
+                ->add('id', null, ['disabled' => true])
+                ->add('name')
+                ->add('link', 'url', ['required' => false])
+                ->add('price')
+                ->add('sex', 'choice', ['choices' => $sexes, 'required' => false])
+                ->add('description')
+            ->end()
+            ->with('Images', ['class' => 'col-md-6'])
+                ->add('featured_image')
+                ->add('product_images')
+            ->end()
         ;
     }
 
