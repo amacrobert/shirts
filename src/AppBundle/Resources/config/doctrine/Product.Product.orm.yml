@@ -1,0 +1,20 @@
+AppBundle\Entity\Product\Product:
+    type: entity
+    table: product
+
+    lifecycleCallbacks:
+        prePersist: [setDateCreatedToNow]
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name: { type: string }
+        link: { type: string, nullable: true }
+        price: { type: decimal, scale: 2, unsigned: false}
+        sex: { type: string(32) }
+        description: { type: text, nullable: true }
+        ordinal: { type: integer }
+        date_created: { type: datetime }

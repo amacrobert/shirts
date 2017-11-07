@@ -21,32 +21,22 @@
 
                 <div class="row products">
 
-                    <div class="col-md-6 product men">
-                        <div class="card bg-dark text-white">
-                            <img class="card-img" src="{{ asset('img/jackie.jpg') }}" alt="Card image">
-                            <div class="card-img-overlay">
-                                <h4 class="card-title">70-200mm f/2.8 Lens Diagram</h4>
-                            </div>
+                    {% for product in products %}
+                        <div class="col-md-6 product {{ product.sex|default('uni') }}">
+                            <a href="#">
+                                <div class="card bg-dark text-white">
+                                    <img class="card-img" src="{{ asset('img/jackie.jpg') }}" alt="Card image">
+                                    <div class="card-img-overlay">
+                                        <h4 class="card-title">
+                                            {% if product.sex %}
+                                                {{ product.sex }}'s
+                                            {% endif %}
+                                            {{ product.name }}</h4>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-
-                    <div class="col-md-6 product women">
-                        <div class="card bg-dark text-white">
-                            <img class="card-img" src="{{ asset('img/jackie.jpg') }}" alt="Card image">
-                            <div class="card-img-overlay">
-                                <h4 class="card-title">14-24mm f/2.8 Lens Diagram</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 product men">
-                        <div class="card bg-dark text-white">
-                            <img class="card-img" src="{{ asset('img/jackie.jpg') }}" alt="Card image">
-                            <div class="card-img-overlay">
-                                <h4 class="card-title">70-200mm f/2.8 Lens Diagram</h4>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
 
                 </div>
 

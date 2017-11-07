@@ -16,7 +16,8 @@ $(function() {
                 $('.product').show();
             }
             else {
-                $('.product:not(.' + filter + ')').hide();
+                $('.product').hide();
+                $('.product.uni').show();
                 $('.product.' + filter).show();
             }
             $('.product').animate({opacity: 1}, fadeTime, function() {

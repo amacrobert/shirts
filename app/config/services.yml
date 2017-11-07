@@ -29,7 +29,13 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-    # add more services, or override services that need manual wiring
-    # AppBundle\Service\ExampleService:
-    #     arguments:
-    #         $someArgument: 'some_value'
+    #################
+    # Sonata admins #
+    #################
+
+    admin.product:
+        class: AppBundle\Admin\Product\ProductAdmin
+        arguments: [~, AppBundle\Entity\Product\Product, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Product }
+        public: true
