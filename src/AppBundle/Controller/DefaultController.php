@@ -14,7 +14,7 @@ class DefaultController extends Controller
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request) {
-        $products = $this->get('doctrine')->getRepository(Product::class)->findBy([], [
+        $products = $this->get('doctrine')->getRepository(Product::class)->findBy(['active' => true], [
             'ordinal' => 'ASC',
             'date_created' => 'DESC',
         ]);

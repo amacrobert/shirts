@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Product {
 
     private $id;
+    private $active = false;
     private $name;
     private $link;
     private $price;
@@ -20,6 +21,7 @@ class Product {
     public function jsonSerialize() {
         return [
             'id'                => $this->getId(),
+            'active'            => $this->isActive(),
             'name'              => $this->getName(),
             'link'              => $this->getLink(),
             'price'             => $this->getPrice(),
@@ -40,6 +42,15 @@ class Product {
 
     public function getId() {
         return $this->id;
+    }
+
+    public function isActive() {
+        return (boolean)$this->active;
+    }
+
+    public function setActive($active) {
+        $this->active = $active;
+        return $this;
     }
 
     public function getName() {

@@ -2,7 +2,11 @@
 
 namespace AppBundle\Entity\Media;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 class Image {
+
+    const SERVER_PATH_TO_IMAGE_FOLDER = __DIR__ . '/../../../../web/img';
 
     private $id;
     private $name;
@@ -11,12 +15,35 @@ class Image {
     private $date_created;
     private $date_updated;
 
+    // unmapped to handle uploads
+    private $file;
+
     public function __toString() {
         return $this->getName() ?: $this->getFilename() ?: 'New Image';
     }
 
+    public function upload() {
+        if (!$this->getFile() === null) {
+            return;
+        }
+
+        $filename = $this->getFile()->getClientOriginalName();
+        $this->getFile()->move(self::SERVER_PATH_TO_IMAGE_FOLDER, $filename);
+        $this->setFilename($filename);
+        $this->setFile(null);
+    }
+
     public function getId() {
         return $this->id;
+    }
+
+    public function getFile() {
+        return $this->file;
+    }
+
+    public function setFile(UploadedFile $file = null) {
+        $this->file = $file;
+        return $this;
     }
 
     public function getName() {
@@ -70,5 +97,9 @@ class Image {
 
     public function setDateUpdatedToNow() {
         return $this->setDateUpdated(new \DateTime);
+    }
+
+    public function lifecycleFileUpload() {
+        $this->upload();
     }
 }

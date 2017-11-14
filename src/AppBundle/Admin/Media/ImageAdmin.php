@@ -14,7 +14,7 @@ class ImageAdmin extends AbstractAdmin {
         $formMapper
             ->add('id', null, ['disabled' => true])
             ->add('name')
-            ->add('filename')
+            ->add('file', 'file')
             ->add('caption')
         ;
     }
@@ -38,6 +38,20 @@ class ImageAdmin extends AbstractAdmin {
                 ]
             ])
         ;
+    }
+
+    public function prePersist($image) {
+        $this->manageFileUpload($image);
+    }
+
+    public function preUpdate($image) {
+        $this->manageFileUpload($image);
+    }
+
+    private function manageFileUpload($image) {
+        if ($image->getFile()) {
+            $image->setDateUpdatedToNow();
+        }
     }
 
 }

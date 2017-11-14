@@ -4,8 +4,8 @@ AppBundle\Entity\Media\Image:
     table: image
 
     lifecycleCallbacks:
-        prePersist: [setDateCreatedToNow]
-        preUpdate: [setDateUpdatedToNow]
+        prePersist: [lifecycleFileUpload, setDateCreatedToNow]
+        preUpdate: [lifecycleFileUpload, setDateUpdatedToNow]
 
     id:
         id:

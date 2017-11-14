@@ -12,6 +12,7 @@ AppBundle\Entity\Product\Product:
             generator: { strategy: AUTO }
 
     fields:
+        active: { type: boolean }
         name: { type: string }
         link: { type: string, nullable: true }
         price: { type: decimal, scale: 2, unsigned: false}
