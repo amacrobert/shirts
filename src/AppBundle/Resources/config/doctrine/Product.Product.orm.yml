@@ -16,18 +16,11 @@ AppBundle\Entity\Product\Product:
         name: { type: string }
         link: { type: string, nullable: true }
         price: { type: decimal, scale: 2, unsigned: false}
-        sex: { type: string(32) }
+        sex: { type: string(32), nullable: true }
         type: { type: string(32) }
         description: { type: text, nullable: true }
         ordinal: { type: integer }
         date_created: { type: datetime }
-
-    manyToOne:
-        featured_image:
-            targetEntity: AppBundle\Entity\Media\Image
-            joinColumn:
-                name: featured_image_id
-                referencedColumnName: id
 
     oneToMany:
         product_images:

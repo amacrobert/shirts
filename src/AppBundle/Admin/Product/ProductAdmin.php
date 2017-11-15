@@ -28,7 +28,7 @@ class ProductAdmin extends AbstractAdmin {
         ];
 
         $formMapper
-            ->with('General', ['class' => 'col-md-6'])
+            ->with('General', ['class' => 'col-md-4'])
                 ->add('active')
                 ->add('name')
                 ->add('link', 'url', ['required' => false])
@@ -37,8 +37,7 @@ class ProductAdmin extends AbstractAdmin {
                 ->add('type', 'choice', ['choices' => $types, 'required' => true])
                 ->add('description')
             ->end()
-            ->with('Images', ['class' => 'col-md-6'])
-                ->add('featured_image', 'sonata_type_model_list', ['required' => false])
+            ->with('Images', ['class' => 'col-md-8', 'description' => 'The first product image will be featured on the main page'])
                 ->add('product_images', 'sonata_type_collection', ['by_reference' => false], ['edit' => 'inline', 'inline' => 'table', 'sortable' => 'ordinal'])
             ->end()
         ;

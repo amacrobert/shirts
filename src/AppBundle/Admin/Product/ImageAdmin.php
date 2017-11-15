@@ -13,7 +13,7 @@ class ImageAdmin extends AbstractAdmin {
 
         $formMapper
             ->add('ordinal')
-            ->add('image', 'sonata_type_model')
+            ->add('image', 'sonata_type_model_list')
         ;
     }
 }

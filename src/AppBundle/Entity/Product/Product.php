@@ -15,23 +15,8 @@ class Product {
     private $type;
     private $description;
     private $ordinal = 0;
-    private $featured_image;
     private $product_images;
     private $date_created;
-
-    public function jsonSerialize() {
-        return [
-            'id'                => $this->getId(),
-            'active'            => $this->isActive(),
-            'name'              => $this->getName(),
-            'link'              => $this->getLink(),
-            'price'             => $this->getPrice(),
-            'sex'               => $this->getSex(),
-            'description'       => $this->getDescription(),
-            'ordinal'           => $this->getOrdinal(),
-            'featured_image'    => $this->getFeaturedImage(),
-        ];
-    }
 
     public function __contruct() {
         $this->product_images = new ArrayCollection;
@@ -118,12 +103,7 @@ class Product {
     }
 
     public function getFeaturedImage() {
-        return $this->featured_image;
-    }
-
-    public function setFeaturedImage($image) {
-        $this->featured_image = $image;
-        return $this;
+        return $this->product_images->first();
     }
 
     public function getProductImages() {

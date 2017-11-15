@@ -14,50 +14,16 @@
             <div class="col-lg-9 col-md-12 mb60">
                 <h2>Premium T-Shirts</h2>
 
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-3 filter filter-sex" role="group" aria-label="Filter by sex">
-                        <button data-filter="all" type="button" class="all btn btn-success active">All</button>
-                        <button data-filter="men" type="button" class="men btn btn-success">Men</button>
-                        <button data-filter="women" type="button" class="women btn btn-success">Women</button>
-                    </div>
+                {% include 'partials/filters.html' %}
 
-                    <div class="btn-group filter type filter-type" role="group" aria-label="Filter by type">
-                        <button data-filter="all" type="button" class="all btn btn-info active">All</button>
-                        <button data-filter="short-sleeve-t" type="button" class="short-sleeve-t btn btn-info">Short Sleeve</button>
-                        <button data-filter="long-sleeve-t" type="button" class="long-sleeve-t btn btn-info">Long Sleeve</button>
-                    </div>
-                </div>
-
-                <div class="row products">
-
-                    {% for product in products %}
-                        <div class="col-md-6 col-xl-4 product {{ product.sex|default('uni') }}">
-                            <a href="#{{ product.id }}" data-toggle="modal" data-target="#p{{ product.id }}">
-                                <div class="card bg-dark text-white">
-                                    <img class="card-img" src="img/{{ product.featuredImage.filename|default('jackie.jpg') }}" alt="{{ product.featuredImage.name|default('') }}">
-                                    <div class="card-img-overlay">
-                                        <h4 class="card-title">{{ product.fullName }}</h4>
-                                        <div style="position: absolute; bottom: 10px; right: 10px; text-shadow: 1px 1px 1px #000000;">${{ product.price }}</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    {% endfor %}
-
-                </div>
+                {% include 'partials/products.html' %}
 
             </div>
 
             <div class="col-lg-3 col-md-12 mb60">
-                <h3>Hello</h3>
-                <p>Let's keep it simple.</p>
-                <p>Shirts For Photographers makes one thing:</p>
-                <p>High-quality T-Shirts with designs for photographers.</p>
-                <hr>
-                <p>We want to make T's that you want to keep wearing, so all our shirts are premium Bella+Canvas or American Apparel. None of that low quality wear-it-once crap.</p>
-                <p>Orders are fulfilled by Amazon and eligible for Amazon Prime shipping.</p>
-                <p>Happy shooting.</p>
-                <hr>
+
+                {% include 'partials/sidebar.html' %}
+
             </div>
         </div>
 
