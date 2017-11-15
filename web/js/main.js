@@ -4,25 +4,17 @@ $(function() {
         if ($(this).hasClass('active')) {
             return;
         }
-        var filter = $(this).data('filter');
-        $('.filter button:not(.' + filter + ')').attr('disabled', true);
 
-        var fadeTime = 350;
-        $('.filter button').removeClass('active');
-        $(this).addClass('active')
+        $(this).parent().find('.active').removeClass('active');
+        $(this).addClass('active');
 
-        $('.product').animate({opacity: 0}, fadeTime, function() {
-            if (filter == 'all') {
-                $('.product').show();
-            }
-            else {
-                $('.product').hide();
-                $('.product.uni').show();
-                $('.product.' + filter).show();
-            }
-            $('.product').animate({opacity: 1}, fadeTime, function() {
-                $('.filter button').attr('disabled', false)
-            });
-        });
+        var filterSex = $('#filter-sex .active').data('filter');
+        var filterType = $('#filter-type .active').data('filter');
+        var filterSelector = '.product' + (filterSex ? '.' + filterSex : '') + (filterType ? '.' + filterType : '');
+
+        $('.product').fadeOut(200);
+        window.setTimeout(function() {
+            $(filterSelector).fadeIn(200);
+        }, 200);
     });
 });
