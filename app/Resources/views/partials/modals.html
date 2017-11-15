@@ -1,0 +1,55 @@
+{% for product in products %}
+
+    <div class="modal fade" id="p{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ product.fullName }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div id="p{{ product.id }}-carousel" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100" src="img/{{ product.featuredImage.filename|default('jackie.jpg') }}" alt="{{ product.featuredImage.name|default('pic not found') }}">
+                                    </div>
+
+                                    {% for productImage in product.productImages %}
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="img/{{ productImage.image.filename }}" alt="{{ productImage.image.name }}">
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+
+                            <div class="carousel-thumbnails mt-1">
+
+                                <img data-target="#p{{ product.id }}-carousel" data-slide-to="0" class="active" src="img/{{ product.featuredImage.filename|default('jackie.jpg') }}">
+
+                                {% for productImage in product.productImages %}
+                                    <img data-target="#p{{ product.id }}-carousel" data-slide-to="{{ loop.index }}" src="img/{{ productImage.image.filename }}">
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p>{{ product.description }}</p>
+                            <p>${{ product.price }}</p>
+                            <a class="btn btn-primary" href="{{ product.link }}" target="_blank" role="button">Buy on Amazon</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}

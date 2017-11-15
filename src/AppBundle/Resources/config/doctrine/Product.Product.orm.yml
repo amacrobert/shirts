@@ -17,11 +17,12 @@ AppBundle\Entity\Product\Product:
         link: { type: string, nullable: true }
         price: { type: decimal, scale: 2, unsigned: false}
         sex: { type: string(32) }
+        type: { type: string(32) }
         description: { type: text, nullable: true }
         ordinal: { type: integer }
         date_created: { type: datetime }
 
-    oneToOne:
+    manyToOne:
         featured_image:
             targetEntity: AppBundle\Entity\Media\Image
             joinColumn:

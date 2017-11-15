@@ -12,6 +12,7 @@ class Product {
     private $link;
     private $price;
     private $sex;
+    private $type;
     private $description;
     private $ordinal = 0;
     private $featured_image;
@@ -86,6 +87,15 @@ class Product {
 
     public function setSex($sex) {
         $this->sex = $sex;
+        return $this;
+    }
+
+    public function getType() {
+        return $this->type;
+    }
+
+    public function setType($type) {
+        $this->type = $type;
         return $this;
     }
 

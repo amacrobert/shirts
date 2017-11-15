@@ -19,6 +19,10 @@ class DefaultController extends Controller
             'date_created' => 'DESC',
         ]);
 
+        foreach ($products as $product) {
+            $product->fullName = ($product->getSex() ? $product->getSex() . '\'s ' : '') . $product->getName();
+        }
+
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'products' => $products,

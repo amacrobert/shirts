@@ -22,6 +22,11 @@ class ProductAdmin extends AbstractAdmin {
             'Women' => 'women',
         ];
 
+        $types = [
+            'Short Sleeve T' => 'short-sleeve-t',
+            'Long Sleeve T' => 'long-sleeve-t'
+        ];
+
         $formMapper
             ->with('General', ['class' => 'col-md-6'])
                 ->add('active')
@@ -29,11 +34,12 @@ class ProductAdmin extends AbstractAdmin {
                 ->add('link', 'url', ['required' => false])
                 ->add('price')
                 ->add('sex', 'choice', ['choices' => $sexes, 'required' => false])
+                ->add('type', 'choice', ['choices' => $types, 'required' => true])
                 ->add('description')
             ->end()
             ->with('Images', ['class' => 'col-md-6'])
-                ->add('featured_image')
-                ->add('product_images')
+                ->add('featured_image', 'sonata_type_model_list', ['required' => false])
+                ->add('product_images', 'sonata_type_collection', ['by_reference' => false], ['edit' => 'inline', 'inline' => 'table', 'sortable' => 'ordinal'])
             ->end()
         ;
     }

@@ -12,9 +12,8 @@ class ImageAdmin extends AbstractAdmin {
     protected function configureFormFields(FormMapper $formMapper) {
 
         $formMapper
-            ->add('id', null, ['disabled' => true])
-            ->add('image')
             ->add('ordinal')
+            ->add('image', 'sonata_type_model')
         ;
     }
 }
