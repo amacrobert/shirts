@@ -1,33 +1,46 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
 
-    <title>{% block title %}Shirts For Photographers{% endblock %}</title>
+        <title>{% block title %}Shirts For Photographers{% endblock %}</title>
 
-    {% block stylesheets %}
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{ asset('css/bootstrap-lux.min.css') }}">
-        <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"-->
-        <link rel="stylesheet" href="{{ asset('css/main.css') }}">        
-    {% endblock %}
-
-    <!-- AdSense -->
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-3109635632403464",
-        enable_page_level_ads: true
-      });
-    </script>
-
-  </head>
-  <body>
-
-        {% block body %}
+        {% block stylesheets %}
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="{{ asset('css/bootstrap-lux.min.css') }}">
+            <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"-->
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+            <link rel="stylesheet" href="{{ asset('rrssb/css/rrssb.css') }}">
         {% endblock %}
+
+        <!-- AdSense -->
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3109635632403464",
+            enable_page_level_ads: true
+          });
+        </script>
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="/">Shirts For Photographers</a>
+        </nav>
+
+        {% block body %}{% endblock %}
+
+        <div class="container-fluid">
+            <div class="row footer">
+                <div class="col-md-12">
+                    <p>Shirts For Photographers &copy; {{ "now"|date("Y") }}</p>
+                    <p class="founded">Founded by <a href="http://andrewmacrobert.com" target="_blank">Andrew MacRobert</a></p>
+                </div>
+            </div>
+        </div>
 
         {% block javascripts %}
             <!-- Optional JavaScript -->
@@ -37,6 +50,8 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
             <script src="{{ asset('js/main.js') }}"></script>
+
+            <script src="{{ asset('rrssb/js/rrssb.min.js') }}"></script>
 
             <!-- Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80617528-2"></script>
@@ -48,5 +63,5 @@
             </script>
 
         {% endblock %}
-  </body>
+    </body>
 </html>

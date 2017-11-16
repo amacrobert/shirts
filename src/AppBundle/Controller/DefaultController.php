@@ -19,13 +19,19 @@ class DefaultController extends Controller
             'date_created' => 'DESC',
         ]);
 
-        foreach ($products as $product) {
-            $product->fullName = ($product->getSex() ? $product->getSex() . '\'s ' : '') . $product->getName();
-        }
-
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'products' => $products,
         ]);
+    }
+
+    /**
+     * @Route("/p/{product_id}", name="product")
+     */
+    public function productAction(Request $request) {
+        $product_id = $request->get('product_id');
+        $product = $this->get('doctrine')->getRepository(Product::class)->findOneBy(['id' => $product_id]);
+
+        return $this->render('default/product.html.twig', ['product' => $product]);
     }
 }

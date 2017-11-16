@@ -30,6 +30,14 @@ class Product {
         return $this->id;
     }
 
+    public function getFullName() {
+        return ($this->getSex() ? $this->getSex() . '\'s ' : '') . $this->getName();
+    }
+
+    public function getUrl() {
+        return 'http://shirtsforphotographers.com/p/' . $this->getId();
+    }
+
     public function isActive() {
         return (boolean)$this->active;
     }

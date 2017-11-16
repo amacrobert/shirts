@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="main container mb-5">
+
+        <nav aria-label="breadcrumb" role="navigation">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">All Shirts</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product.Name }}</li>
+          </ol>
+        </nav>
+
+        <div class="row mb-10">
+            <div class="col-md-12">
+                <h2>{{ product.fullName }}</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-5 col-sm-6">
+                {% include 'partials/product-carousel.html' %}
+            </div>
+
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                {% include 'partials/product-details.html' %}
+                <br>
+                <a class="btn btn-info mt-2 sm-full" href="/" role="button">Browse More Shirts</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

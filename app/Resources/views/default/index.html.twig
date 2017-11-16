@@ -1,38 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="/">Shirts For Photographers</a>
-    </nav>
-
     <div class="main container-fluid">
-
         <div class="row">
+
             <div class="col-lg-9 col-md-12 mb60">
                 <h2>Premium T-Shirts</h2>
-
                 {% include 'partials/filters.html' %}
-
                 {% include 'partials/products.html' %}
-
             </div>
 
             <div class="col-lg-3 col-md-12 mb60">
-
                 {% include 'partials/sidebar.html' %}
-
             </div>
-        </div>
 
-        <div class="row footer">
-            <div class="col-md-12">
-                <p>Shirts For Photographers &copy; {{ "now"|date("Y") }}</p>
-                <p class="founded">Founded by <a href="http://andrewmacrobert.com" target="_blank">Andrew MacRobert</a></p>
-            </div>
+            {% include 'partials/modals.html' %}
+
         </div>
     </div>
-
-    {% include 'partials/modals.html' %}
 
 {% endblock %}

@@ -12,31 +12,12 @@
                 <div class="modal-body">
 
                     <div class="row">
-
                         <div class="col-md-6">
-                            <div id="p{{ product.id }}-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                                <div class="carousel-inner">
-
-                                    {% for productImage in product.productImages %}
-                                        <div class="carousel-item{% if loop.first %} active{% endif %}">
-                                            <img class="d-block w-100" src="{{ uploads_url }}{{ productImage.image.filename }}" alt="{{ productImage.image.name }}">
-                                        </div>
-                                    {% endfor %}
-
-                                </div>
-                            </div>
-
-                            <div class="carousel-thumbnails mt-1">
-                                {% for productImage in product.productImages %}
-                                    <img data-target="#p{{ product.id }}-carousel" data-slide-to="{{ loop.index0 }}" class="{% if loop.first %}active{% endif %}" src="{{ uploads_url }}{{ productImage.image.filename }}">
-                                {% endfor %}
-                            </div>
+                            {% include 'partials/product-carousel.html' %}
                         </div>
 
                         <div class="col-md-6">
-                            <p>{{ product.description }}</p>
-                            <p>${{ product.price }}</p>
-                            <a class="btn btn-primary" href="{{ product.link }}" target="_blank" role="button">Buy on Amazon</a>
+                            {% include 'partials/product-details.html' %}
                         </div>
                     </div>
 
