@@ -5,7 +5,7 @@
         <div class="col-md-6 col-xl-4 product {{ product.sex|default('men women') }} {{ product.type|default('long-sleeve-t short-sleeve-t') }}">
             <a href="#{{ product.id }}" data-toggle="modal" data-target="#p{{ product.id }}">
                 <div class="card bg-dark text-white">
-                    <img class="card-img" src="img/{{ product.featuredImage.image.filename|default('jackie.jpg') }}" alt="{{ product.featuredImage.name|default('') }}">
+                    <img class="card-img" src="{{ uploads_url }}{{ product.featuredImage.image.filename|default('../jackie.jpg') }}" alt="{{ product.featuredImage.name|default('') }}">
                     <div class="card-img-overlay">
                         <h4 class="card-title">{{ product.fullName }}</h4>
                         <div style="position: absolute; bottom: 10px; right: 10px; text-shadow: 1px 1px 1px #000000;">${{ product.price }}</div>

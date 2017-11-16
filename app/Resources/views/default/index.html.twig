@@ -6,8 +6,6 @@
       <a class="navbar-brand" href="/">Shirts For Photographers</a>
     </nav>
 
-    {% include 'partials/modals.html' %}
-
     <div class="main container-fluid">
 
         <div class="row">
@@ -27,8 +25,6 @@
             </div>
         </div>
 
-    </div>
-    <div class="container-fluid">
         <div class="row footer">
             <div class="col-md-12">
                 <p>Shirts For Photographers &copy; {{ "now"|date("Y") }}</p>
@@ -36,5 +32,7 @@
             </div>
         </div>
     </div>
+
+    {% include 'partials/modals.html' %}
 
 {% endblock %}

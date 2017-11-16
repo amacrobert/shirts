@@ -6,8 +6,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Image {
 
-    const SERVER_PATH_TO_IMAGE_FOLDER = __DIR__ . '/../../../../web/img';
-
     private $id;
     private $name;
     private $filename;
@@ -20,17 +18,6 @@ class Image {
 
     public function __toString() {
         return $this->getName() ?: $this->getFilename() ?: 'New Image';
-    }
-
-    public function upload() {
-        if (!$this->getFile() === null) {
-            return;
-        }
-
-        $filename = $this->getFile()->getClientOriginalName();
-        $this->getFile()->move(self::SERVER_PATH_TO_IMAGE_FOLDER, $filename);
-        $this->setFilename($filename);
-        $this->setFile(null);
     }
 
     public function getId() {
@@ -97,9 +84,5 @@ class Image {
 
     public function setDateUpdatedToNow() {
         return $this->setDateUpdated(new \DateTime);
-    }
-
-    public function lifecycleFileUpload() {
-        $this->upload();
     }
 }
