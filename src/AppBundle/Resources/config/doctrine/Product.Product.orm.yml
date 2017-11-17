@@ -29,3 +29,4 @@ AppBundle\Entity\Product\Product:
             orderBy: { 'ordinal': 'ASC' }
             cascade: [all]
             orphanRemoval: true
+            fetch: EAGER

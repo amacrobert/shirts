@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Product;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 
 class Product {
 
@@ -111,11 +112,14 @@ class Product {
     }
 
     public function getFeaturedImage() {
-        return $this->product_images->first();
+        return $this->getProductImages()->first();
     }
 
     public function getProductImages() {
-        return $this->product_images;
+        // fetch EAGER does not support orderBy, so ordering product images must be done here
+        $criteria = Criteria::create()->orderBy(['ordinal' => Criteria::ASC]);
+
+        return $this->product_images->matching($criteria);
     }
 
     public function addProductImage($product_image) {

@@ -75,4 +75,19 @@ class ProductAdmin extends AbstractAdmin {
         ;
     }
 
+    public function postPersist($object) {
+        $this->clearCache($object);
+    }
+
+    public function postUpdate($object) {
+        $this->clearCache($object);
+    }
+
+    private function clearCache($object) {
+        $product_id = $object->getId();
+        $cache = $this->getConfigurationPool()->getContainer()->get('cache');
+        $cache->delete('product.' . $product_id);
+        $cache->delete('product.list');
+    }
+
 }
