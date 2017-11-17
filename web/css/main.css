@@ -77,4 +77,20 @@ button {
     .sm-full {
         width: 100%;
     }
+
+    .btn-group.sm-full > button {
+        width: 33.3333%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.md-mr-3 {
+    margin-right: .75rem;
+}
+
+@media (max-width: 767px) {
+    .md-mr-3 {
+        margin-right: 0;
+    }
 }
