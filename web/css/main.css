@@ -67,3 +67,14 @@ button {
     height: 100px;
     cursor: pointer;
 }
+
+.browse-more {
+    display: block;
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    .sm-full {
+        width: 100%;
+    }
+}

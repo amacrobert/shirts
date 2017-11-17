@@ -15,14 +15,20 @@
             <link rel="stylesheet" href="{{ asset('rrssb/css/rrssb.css') }}">
         {% endblock %}
 
-        <!-- AdSense -->
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-3109635632403464",
-            enable_page_level_ads: true
-          });
-        </script>
+        {% block opengraph %}
+            <meta property="og:title" content="Shirts For Photographers" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="http://shirtsforphotographers.com" />
+            <meta property="og:image" content="http://shirtsforphotographers.com/u/14-24-long-black.jpg" />
+            <meta property="og:description" content="Simple, High Quality T-Shirts for Photographers"/>
+
+            <meta name="twitter:card" content="summary_large_image">
+            <!--meta name="twitter:site" content="@therealkni">
+            <meta name="twitter:creator" content="@dbox" -->
+            <meta name="twitter:title" content="Shirts For Photographers">
+            <meta name="twitter:description" content="Simple, High Quality T-Shirts for Photographers">
+            <meta name="twitter:image" content="http://shirtsforphotographers.com/u/14-24-long-black.jpg">
+        {% endblock %}
 
     </head>
     <body>

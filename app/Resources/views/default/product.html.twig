@@ -1,12 +1,31 @@
 {% extends 'base.html.twig' %}
 
+{% block opengraph %}
+
+    <meta property="og:title" content="Shirts For Photographers - {{ product.fullName }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ product.url }}" />
+    {% for productImage in product.productImages %}
+        <meta property="og:image" content="{{ uploads_url }}{{ productImage.image.filename }}" />
+    {% endfor %}
+    <meta property="og:description" content="Simple, High Quality T-Shirts for Photographers"/>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shirts For Photographers - {{ product.fullName }}">
+    <meta name="twitter:description" content="Simple, High Quality T-Shirts for Photographers">
+    {% for productImage in product.productImages %}
+        <meta name="twitter:image" content="{{ uploads_url }}{{ productImage.image.filename }}">
+    {% endfor %}
+
+{% endblock %}
+
 {% block body %}
 
     <div class="main container mb-5">
 
         <nav aria-label="breadcrumb" role="navigation">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">All Shirts</a></li>
+            <li class="breadcrumb-item"><a href="#">ALL SHIRTS</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ product.Name }}</li>
           </ol>
         </nav>
@@ -24,8 +43,10 @@
 
             <div class="col-lg-8 col-md-7 col-sm-6">
                 {% include 'partials/product-details.html' %}
-                <br>
-                <a class="btn btn-info mt-2 sm-full" href="/" role="button">Browse More Shirts</a>
+
+                <a class="mt-5 browse-more" href="/">BROWSE MORE SHIRTS &raquo;</a>
+
+                {% include 'partials/product-sharing.html' %}
             </div>
         </div>
     </div>

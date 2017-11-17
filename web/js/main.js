@@ -1,4 +1,5 @@
 $(function() {
+    // Product filters
     $('.filter button').click(function() {
 
         if ($(this).hasClass('active')) {
@@ -16,5 +17,10 @@ $(function() {
         window.setTimeout(function() {
             $(filterSelector).fadeIn(200);
         }, 200);
+    });
+
+    // Init rrssb on modal open to size sharing buttons
+    $(".modal").on("shown.bs.modal", function(e) {
+        rrssbInit();
     });
 });

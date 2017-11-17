@@ -31,7 +31,7 @@ class Product {
     }
 
     public function getFullName() {
-        return ($this->getSex() ? $this->getSex() . '\'s ' : '') . $this->getName();
+        return ($this->getSex() ? ucwords($this->getSex()) . '\'s ' : '') . $this->getName();
     }
 
     public function getUrl() {
