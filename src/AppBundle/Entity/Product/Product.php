@@ -19,7 +19,7 @@ class Product {
     private $product_images;
     private $date_created;
 
-    public function __contruct() {
+    public function __construct() {
         $this->product_images = new ArrayCollection;
     }
 
@@ -119,12 +119,12 @@ class Product {
         // fetch EAGER does not support orderBy, so ordering product images must be done here
         $criteria = Criteria::create()->orderBy(['ordinal' => Criteria::ASC]);
 
-        return $this->product_images ? $this->product_images->matching($criteria) : null;
+        return $this->product_images->matching($criteria);
     }
 
     public function addProductImage($product_image) {
         $product_image->setProduct($this);
-        $this->product_images[] = $product_image;
+        $this->product_images->add($product_image);
         return $this;
     }
 
