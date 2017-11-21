@@ -1,4 +1,7 @@
 $(function() {
+    // Init lazy load images
+    lazyload();
+
     // Product filters
     $('.filter button').click(function() {
 
@@ -23,4 +26,5 @@ $(function() {
     $(".modal").on("shown.bs.modal", function(e) {
         rrssbInit();
     });
+
 });
