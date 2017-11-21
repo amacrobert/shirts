@@ -119,7 +119,7 @@ class Product {
         // fetch EAGER does not support orderBy, so ordering product images must be done here
         $criteria = Criteria::create()->orderBy(['ordinal' => Criteria::ASC]);
 
-        return $this->product_images->matching($criteria);
+        return $this->product_images ? $this->product_images->matching($criteria) : null;
     }
 
     public function addProductImage($product_image) {
