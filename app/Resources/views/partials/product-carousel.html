@@ -3,7 +3,7 @@
 
         {% for productImage in product.productImages %}
             <div class="carousel-item{% if loop.first %} active{% endif %}">
-                <img class="d-block w-100 lazyload" data-src="{{ uploads_url }}{{ productImage.image.filename }}" alt="{{ productImage.image.name }}">
+                <img class="d-block w-100 lazyload" data-original="{{ uploads_url }}{{ productImage.image.filename }}" alt="{{ productImage.image.name }}">
             </div>
         {% endfor %}
 
@@ -12,6 +12,6 @@
 
 <div class="carousel-thumbnails mt-1">
     {% for productImage in product.productImages %}
-        <img data-target="#p{{ product.id }}-carousel" data-slide-to="{{ loop.index0 }}" class="{% if loop.first %}active{% endif %} lazyload" data-src="{{ uploads_url }}{{ productImage.image.filename }}">
+        <img data-target="#p{{ product.id }}-carousel" data-slide-to="{{ loop.index0 }}" class="{% if loop.first %}active{% endif %} lazyload" data-original="{{ uploads_url }}{{ productImage.image.filename }}">
     {% endfor %}
 </div>

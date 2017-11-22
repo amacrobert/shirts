@@ -104,3 +104,41 @@ button {
         margin-right: 0;
     }
 }
+
+/* sharing buttons */
+.share-container {
+    display: flex;
+}
+
+.share-button {
+    flex-grow: 1;
+    background-color: #eee;
+    margin: .5rem .25rem .5rem 0;
+    padding: 8px 0 2px;
+    text-align: center;
+}
+
+.share-container .share-button:last-child {
+    margin-right: 0;
+}
+
+.share-button svg {
+    fill: #888;
+    height: 24px;
+    fill: white;
+}
+
+.share-button.facebook { background-color: #306199 }
+.share-button.facebook:hover { background-color: #244872 }
+.share-button.pinterest { background-color: #b81621 }
+.share-button.pinterest:hover { background-color: #8a1119 }
+.share-button.twitter { background-color: #26c4f1 }
+.share-button.twitter:hover { background-color: #0eaad6 }
+.share-button.tumblr { background-color: #32506d }
+.share-button.tumblr:hover {background-color: #22364a }
+.share-button.reddit { background-color: #8bbbe3 }
+.share-button.reddit:hover { background-color: #62a3d9 }
+.share-button.googleplus { background-color: #e93f2e }
+.share-button.googleplus:hover { background-color: #ce2616 }
+.share-button.email { background-color: #0a88ff }
+.share-button.email:hover { background-color: #006ed6 }

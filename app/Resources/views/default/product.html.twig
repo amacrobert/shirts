@@ -44,11 +44,25 @@
             <div class="col-lg-8 col-md-7 col-sm-6">
                 {% include 'partials/product-details.html' %}
 
-                <a class="mt-5 browse-more" href="/">BROWSE MORE SHIRTS &raquo;</a>
+                <a class="mt-5 mb-4 browse-more" href="/">BROWSE MORE SHIRTS &raquo;</a>
 
                 {% include 'partials/product-sharing.html' %}
             </div>
         </div>
     </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $(function() {
+            $('img.lazyload').each(function(index) {
+                $(this).attr('src', $(this).data('original'));
+            })
+        });
+    </script>
 
 {% endblock %}
