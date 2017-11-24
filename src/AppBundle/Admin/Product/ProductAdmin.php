@@ -39,6 +39,7 @@ class ProductAdmin extends AbstractAdmin {
             ->end()
             ->with('Images', ['class' => 'col-md-8', 'description' => 'The first product image will be featured on the main page'])
                 ->add('product_images', 'sonata_type_collection', ['by_reference' => false], ['edit' => 'inline', 'inline' => 'table', 'sortable' => 'ordinal'])
+                ->add('open_graph_image', 'sonata_type_model_list')
             ->end()
         ;
     }

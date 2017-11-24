@@ -30,3 +30,10 @@ AppBundle\Entity\Product\Product:
             cascade: [all]
             orphanRemoval: true
             fetch: EAGER
+
+    manyToOne:
+        open_graph_image:
+            targetEntity: AppBundle\Entity\Media\Image
+            joinColumn:
+                name: open_graph_image_id
+                referencedColumnName: id

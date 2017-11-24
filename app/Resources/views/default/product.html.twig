@@ -5,6 +5,9 @@
     <meta property="og:title" content="Shirts For Photographers - {{ product.fullName }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ product.url }}" />
+    {% if product.openGraphImage %}
+        <meta property="og:image" content="{{ uploads_url }}{{ product.openGraphImage.filename }}" />
+    {% endif %}
     {% for productImage in product.productImages %}
         <meta property="og:image" content="{{ uploads_url }}{{ productImage.image.filename }}" />
     {% endfor %}

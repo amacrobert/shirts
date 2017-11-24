@@ -18,6 +18,7 @@ class Product {
     private $ordinal = 0;
     private $product_images;
     private $date_created;
+    private $open_graph_image;
 
     public function __construct() {
         $this->product_images = new ArrayCollection;
@@ -29,6 +30,15 @@ class Product {
 
     public function getId() {
         return $this->id;
+    }
+
+    public function getOpenGraphImage() {
+        return $this->open_graph_image;
+    }
+
+    public function setOpenGraphImage($image) {
+        $this->open_graph_image = $image;
+        return $this;
     }
 
     public function getFullName() {
