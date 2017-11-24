@@ -13,6 +13,7 @@ parameters:
     ftp_server: ~
     ftp_port: 21
     uploads_url: http://shirtsforphotographers.com/u/
+    default_open_graph_image: 'http://shirtsforphotographers.com/u/ad-rc1.jpg'
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1

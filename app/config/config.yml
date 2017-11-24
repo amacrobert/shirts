@@ -39,6 +39,7 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         uploads_url: '%uploads_url%'
+        default_open_graph_image: '%default_open_graph_image%'
 
 # Doctrine Configuration
 doctrine:
